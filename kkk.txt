@@ -1,9 +1,0 @@
-Uncaught SyntaxError: Invalid or unexpected token
-stadium.js:1 Error
-    at stadium.js:1:2654
-    at 297d (stadium.js:1:2794)
-    at n (stadium.js:1:110)
-    at 4 (stadium.js:1:2832)
-    at n (stadium.js:1:110)
-    at stadium.js:1:903
-    at stadium.js:1:912

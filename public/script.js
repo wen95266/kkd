@@ -1,6 +1,7 @@
 const socket = io();
+const roomSelect = document.getElementById('roomSelect');
 
-
+    
 // --------------------------------------------------------------------
 //                   1. Game client initialization
 // --------------------------------------------------------------------

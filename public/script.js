@@ -1,3 +1,6 @@
+const socket = io();
+
+
 // --------------------------------------------------------------------
 //                   1. Game client initialization
 // --------------------------------------------------------------------
@@ -11,7 +14,6 @@ const playButton = document.getElementById('play-button');
 const passButton = document.getElementById('pass-button');
 const readyButton = document.getElementById('ready-button');
 const resetButton = document.getElementById('reset-button');
-const roomSelect = document.getElementById('room-select');
 const roomListDiv = document.getElementById('room-list');
 
 

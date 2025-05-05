@@ -147,10 +147,10 @@ io.on('connection', (socket) => {
 
    // 玩家请求加入房间
   socket.on('join_room', (roomId) => {
-       if (socket.rooms.has(roomId)) {
-            socket.emit('error', '您已在该房间中');
-            return;
-       }
+        if (socket.rooms.has(roomId)) {
+             socket.emit('error', '您已在该房间中');
+             return;
+        }
        
         // 检查房间号是否有效
        if (!rooms[roomId]) {

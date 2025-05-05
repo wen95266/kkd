@@ -1,6 +1,7 @@
 const socket = io();
 const roomSelect = document.getElementById('roomSelect');
 
+
     
 // --------------------------------------------------------------------
 //                   1. Game client initialization
@@ -25,6 +26,11 @@ const roomListDiv = document.getElementById('room-list');
 socket.on('connect', () => {
     console.log('Connected to server');
     myPlayerId = socket.id;
+     // Join default room if no room is selected
+    if (!currentRoomId) {
+        const defaultRoomId = '1'; // First room is room 1
+        selectRoom(defaultRoomId);
+    }
 });
 
 // Update room list
@@ -170,9 +176,16 @@ function selectRoom(roomId) {
 
 function displayHand(hand) {
     clearHand();
-    hand.forEach(card => {
-        const cardDiv = document.createElement('div');
-        cardDiv.textContent = `${card.suit} ${card.rank}`;
+      const isMyHand = hand.some(card => card);
+        hand.forEach(card => {
+        const cardDiv = document.createElement('img');
+        let imageName = 'back.png';
+       if (isMyHand) {
+           const rankMap = { 'T': '10', 'J': 'jack', 'Q': 'queen', 'K': 'king', 'A': 'ace' };
+            const suitMap = { 'C': 'clubs', 'D': 'diamonds', 'H': 'hearts', 'S': 'spades' };
+            imageName = `${rankMap[card.rank] || card.rank}_of_${suitMap[card.suit]}.png`;
+        }
+        cardDiv.src = imageName;
         cardDiv.className = 'card';
         cardDiv.onclick = () => {
             cardDiv.classList.toggle('selected');
@@ -247,3 +260,10 @@ for (let i = 1; i <= 5; i++) {
     option.text = i;
     roomSelect.add(option);
   }
+
+// Add a change listener to roomSelect
+roomSelect.addEventListener('change', () => {
+    const selectedRoomId = roomSelect.value;
+    console.log(`Selected room: ${selectedRoomId}`);
+    socket.emit('join_room', selectedRoomId);
+});

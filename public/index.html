@@ -6,51 +6,23 @@
     <title>Dou Dizhu</title>
     <script src="/socket.io/socket.io.js"></script>
 </head>
-<body style="font-family: sans-serif;">
-    <div id="app">
-        <!-- Room Selection -->
-        <div id="room-selection">
-            <h2>Select Room</h2>
-            <label for="room-number">Room Number:</label>
-            <input type="number" id="room-number" min="1" value="1">
-            <button id="join-room-btn">Join Room</button>
+<body style="font-family: sans-serif;text-align:center;">
+    <div id="player-display"></div>
+    <div id="room-id-display"></div>
+    <div id="game-message"></div>
+    <div id="my-position"></div>
+    <div id="room-list"></div>
+    <div id="last-play"></div>
+    <div id="player-hand">
+        <h3>Your Hand</h3>
+        <div id="card-container" style="display: flex; flex-wrap: wrap;">
         </div>
-
-        <!-- Game Container (Initially Hidden) -->
-        <div id="game-container" style="display: none;">
-            <h2>Room: <span id="current-room"></span></h2>
-
-            <!-- Players' Positions -->
-            <div id="player-positions" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-                <div id="player-left">
-                    Player Left
-                    <p>Cards: <span id="player-left-cards">0</span></p>
-                </div>
-                <div id="player-top">
-                    Player Top
-                    <p>Cards: <span id="player-top-cards">0</span></p>
-                </div>
-                <div id="player-right">
-                    Player Right
-                    <p>Cards: <span id="player-right-cards">0</span></p>
-                </div>
-            </div>
-
-            <!-- Player's Hand -->
-            <div id="player-hand">
-                <h3>Your Hand</h3>
-                <div id="card-container" style="display: flex; flex-wrap: wrap;">
-                    <!-- Cards will be added here dynamically -->
-                </div>
-            </div>
-
-            <!-- Game Buttons -->
-            <div id="game-buttons" style="margin-top: 20px;">
-                <button id="play-cards-btn">Play Cards</button>
-                <button id="pass-btn">Pass</button>
-                <button id="ready-btn">Ready</button>
-            </div>
-        </div>
+    </div>
+    <div id="game-buttons">
+        <button id="play-button">Play Cards</button>
+        <button id="pass-button">Pass</button>
+        <button id="ready-button">Ready</button>
+        <button id="reset-button">Reset</button>
     </div>
     
     <style>
@@ -76,19 +48,6 @@
             object-fit: cover;
         }
 
-        /* Room Selection */
-        #room-selection {
-            text-align: center;
-            margin-top: 50px;
-        }
-        #room-selection input{
-            width:50px;
-        }
-
-        /* Game Container */
-        #game-container {
-            text-align: center;
-        }
 
         /* Player Positions */
         #player-positions {

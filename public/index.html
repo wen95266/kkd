@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dou Dizhu</title>
+</head>
+<body style="font-family: sans-serif;">
+    <div id="app">
+        <!-- Room Selection -->
+        <div id="room-selection">
+            <h2>Select Room</h2>
+            <label for="room-number">Room Number:</label>
+            <input type="number" id="room-number" min="1" value="1">
+            <button id="join-room-btn">Join Room</button>
+        </div>
+
+        <!-- Game Container (Initially Hidden) -->
+        <div id="game-container" style="display: none;">
+            <h2>Room: <span id="current-room"></span></h2>
+
+            <!-- Players' Positions -->
+            <div id="player-positions" style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+                <div id="player-left">
+                    Player Left
+                    <p>Cards: <span id="player-left-cards">0</span></p>
+                </div>
+                <div id="player-top">
+                    Player Top
+                    <p>Cards: <span id="player-top-cards">0</span></p>
+                </div>
+                <div id="player-right">
+                    Player Right
+                    <p>Cards: <span id="player-right-cards">0</span></p>
+                </div>
+            </div>
+
+            <!-- Player's Hand -->
+            <div id="player-hand">
+                <h3>Your Hand</h3>
+                <div id="card-container" style="display: flex; flex-wrap: wrap;">
+                    <!-- Cards will be added here dynamically -->
+                </div>
+            </div>
+
+            <!-- Game Buttons -->
+            <div id="game-buttons" style="margin-top: 20px;">
+                <button id="play-cards-btn">Play Cards</button>
+                <button id="pass-btn">Pass</button>
+                <button id="ready-btn">Ready</button>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        /* General Styling */
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .card {
+            width: 100px;
+            height: 150px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Room Selection */
+        #room-selection {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #room-selection input{
+            width:50px;
+        }
+
+        /* Game Container */
+        #game-container {
+            text-align: center;
+        }
+
+        /* Player Positions */
+        #player-positions {
+            margin-bottom: 20px;
+        }
+
+        #player-left, #player-top, #player-right {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Game Buttons */
+        #game-buttons {
+            margin-top: 20px;
+        }
+    </style>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -5,7 +5,6 @@ const socket = io();
 //                   1. Game client initialization
 // --------------------------------------------------------------------
 
-const socket = io();
 let currentRoomId = null;
 let myPlayerId = null;
 
